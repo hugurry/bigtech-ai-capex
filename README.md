@@ -7,6 +7,8 @@ company is filling the gap. Built only from each company's own earnings releases
 (Q3 2026: 106%) spent more on capex than their operations generated in cash, and all three raised new debt or equity
 in 2026. Microsoft's cash capex was 65% of operating cash flow in April to June 2026 and 63% over its fiscal year.
 
+**[Read the full study](https://hugurry.github.io/bigtech-ai-capex/)**
+
 ## Files
 
 - `index.html`: the study (self-contained page, charts drawn in SVG, no external libraries)
