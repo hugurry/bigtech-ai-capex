@@ -1,0 +1,89 @@
+company,period,metric,value_usd_bn,source_url,note
+Alphabet,Q3 2025,operating_cash_flow,48.414,https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm,
+Alphabet,Q3 2025,capex_purchases_of_property_and_equipment,23.953,https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm,
+Alphabet,Q4 2025,operating_cash_flow,52.402,https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm,
+Alphabet,Q4 2025,capex_purchases_of_property_and_equipment,27.851,https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm,
+Alphabet,Q1 2026,operating_cash_flow,45.79,https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm,
+Alphabet,Q1 2026,capex_purchases_of_property_and_equipment,35.674,https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm,
+Alphabet,Q2 2026,operating_cash_flow,39.069,https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm,
+Alphabet,Q2 2026,capex_purchases_of_property_and_equipment,44.924,https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm,
+Alphabet,Q2 2025,operating_cash_flow,27.747,https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm,prior-year column
+Alphabet,Q2 2025,capex_purchases_of_property_and_equipment,22.446,https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm,prior-year column
+Alphabet,12 months to Jun 2026,operating_cash_flow,185.675,https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm,reported TTM
+Alphabet,12 months to Jun 2026,capex_purchases_of_property_and_equipment,132.402,https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm,reported TTM
+Alphabet,Jan-Jun 2026,proceeds_from_issuance_of_debt_net,56.226,https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm,year-to-date column
+Alphabet,Jan-Jun 2026,proceeds_from_issuance_of_common_stock_net,30.499,https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm,
+Alphabet,Jan-Jun 2026,proceeds_from_issuance_of_mandatory_convertible_preferred_net,19.063,https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm,
+Alphabet,Jan-Jun 2026,repurchases_of_stock,0.0,https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm,Jan-Jun 2025: 28.306
+Alphabet,31 Dec 2025,long_term_debt,46.547,https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm,
+Alphabet,30 Jun 2026,long_term_debt,98.165,https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm,
+Alphabet,31 Dec 2025,cash_and_marketable_securities,126.843,https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm,
+Alphabet,30 Jun 2026,cash_and_marketable_securities,242.474,https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm,
+Alphabet,Q2 2026,other_income_net,97.983,https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm,reported; primarily unrealised gains on equity securities
+Amazon,Q2 2026,operating_cash_flow,45.387,https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q2/earnings-result/AMZN-Q2-2026-Earnings-Release.pdf,three months
+Amazon,Q2 2026,purchases_of_property_and_equipment,54.208,https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q2/earnings-result/AMZN-Q2-2026-Earnings-Release.pdf,three months
+Amazon,Q2 2026,proceeds_from_property_and_equipment_sales_and_incentives,1.132,https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q2/earnings-result/AMZN-Q2-2026-Earnings-Release.pdf,three months; net capex = purchases - proceeds
+Amazon,Q2 2025,operating_cash_flow,32.515,https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q2/earnings-result/AMZN-Q2-2026-Earnings-Release.pdf,three months
+Amazon,Q2 2025,purchases_of_property_and_equipment,32.183,https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q2/earnings-result/AMZN-Q2-2026-Earnings-Release.pdf,three months
+Amazon,Q2 2025,proceeds_from_property_and_equipment_sales_and_incentives,0.815,https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q2/earnings-result/AMZN-Q2-2026-Earnings-Release.pdf,three months
+Amazon,Jan-Jun 2026,operating_cash_flow,71.419,https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q2/earnings-result/AMZN-Q2-2026-Earnings-Release.pdf,six months
+Amazon,Jan-Jun 2026,purchases_of_property_and_equipment,98.411,https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q2/earnings-result/AMZN-Q2-2026-Earnings-Release.pdf,six months
+Amazon,Jan-Jun 2026,proceeds_from_property_and_equipment_sales_and_incentives,2.101,https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q2/earnings-result/AMZN-Q2-2026-Earnings-Release.pdf,six months
+Amazon,Jan-Jun 2025,operating_cash_flow,49.53,https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q2/earnings-result/AMZN-Q2-2026-Earnings-Release.pdf,six months
+Amazon,Jan-Jun 2025,purchases_of_property_and_equipment,57.202,https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q2/earnings-result/AMZN-Q2-2026-Earnings-Release.pdf,six months
+Amazon,Jan-Jun 2025,proceeds_from_property_and_equipment_sales_and_incentives,1.579,https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q2/earnings-result/AMZN-Q2-2026-Earnings-Release.pdf,six months
+Amazon,12 months to Jun 2026,operating_cash_flow,161.403,https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q2/earnings-result/AMZN-Q2-2026-Earnings-Release.pdf,
+Amazon,12 months to Jun 2026,purchases_of_property_and_equipment_net_of_proceeds,169.007,https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q2/earnings-result/AMZN-Q2-2026-Earnings-Release.pdf,reported line in the supplemental table
+Amazon,12 months to Jun 2026,free_cash_flow,-7.604,https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q2/earnings-result/AMZN-Q2-2026-Earnings-Release.pdf,
+Amazon,12 months to Jun 2025,operating_cash_flow,121.137,https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q2/earnings-result/AMZN-Q2-2026-Earnings-Release.pdf,
+Amazon,12 months to Jun 2025,purchases_of_property_and_equipment_net_of_proceeds,102.953,https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q2/earnings-result/AMZN-Q2-2026-Earnings-Release.pdf,reported line in the supplemental table
+Amazon,12 months to Jun 2025,free_cash_flow,18.184,https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q2/earnings-result/AMZN-Q2-2026-Earnings-Release.pdf,
+Amazon,12 months to Jun 2026,increase_in_property_and_equipment_acquired_but_not_yet_paid,29.267,https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q2/earnings-result/AMZN-Q2-2026-Earnings-Release.pdf,
+Amazon,Jan-Jun 2026,proceeds_from_long_term_debt,66.998,https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q2/earnings-result/AMZN-Q2-2026-Earnings-Release.pdf,
+Amazon,31 Dec 2025,long_term_debt,65.648,https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q2/earnings-result/AMZN-Q2-2026-Earnings-Release.pdf,
+Amazon,30 Jun 2026,long_term_debt,128.894,https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q2/earnings-result/AMZN-Q2-2026-Earnings-Release.pdf,
+Amazon,31 Dec 2025,cash_and_marketable_securities,123.029,https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q2/earnings-result/AMZN-Q2-2026-Earnings-Release.pdf,86.810 cash + 36.219 marketable securities
+Amazon,30 Jun 2026,cash_and_marketable_securities,122.988,https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q2/earnings-result/AMZN-Q2-2026-Earnings-Release.pdf,78.213 cash + 44.775 marketable securities
+Amazon,Q2 2026,total_non_operating_income,53.396,https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q2/earnings-result/AMZN-Q2-2026-Earnings-Release.pdf,release: other income of $53.4bn primarily from investments in Anthropic
+Meta,Q3 2025,operating_cash_flow,29.999,https://www.sec.gov/Archives/edgar/data/0001326801/000162828026066700/meta-09302026xexhibit991.htm,prior-year column
+Meta,Q3 2025,purchases_of_property_and_equipment,18.829,https://www.sec.gov/Archives/edgar/data/0001326801/000162828026066700/meta-09302026xexhibit991.htm,prior-year column
+Meta,Q3 2025,principal_payments_on_finance_leases,0.545,https://www.sec.gov/Archives/edgar/data/0001326801/000162828026066700/meta-09302026xexhibit991.htm,prior-year column
+Meta,Q2 2025,operating_cash_flow,25.561,https://s21.q4cdn.com/399680738/files/doc_financials/2026/q2/Meta-06-30-2026-Exhibit-99-1-FINAL.pdf,prior-year column
+Meta,Q2 2025,purchases_of_property_and_equipment,16.538,https://s21.q4cdn.com/399680738/files/doc_financials/2026/q2/Meta-06-30-2026-Exhibit-99-1-FINAL.pdf,prior-year column
+Meta,Q2 2025,principal_payments_on_finance_leases,0.474,https://s21.q4cdn.com/399680738/files/doc_financials/2026/q2/Meta-06-30-2026-Exhibit-99-1-FINAL.pdf,prior-year column
+Meta,Q2 2026,operating_cash_flow,31.862,https://s21.q4cdn.com/399680738/files/doc_financials/2026/q2/Meta-06-30-2026-Exhibit-99-1-FINAL.pdf,
+Meta,Q2 2026,purchases_of_property_and_equipment,30.116,https://s21.q4cdn.com/399680738/files/doc_financials/2026/q2/Meta-06-30-2026-Exhibit-99-1-FINAL.pdf,
+Meta,Q2 2026,principal_payments_on_finance_leases,0.962,https://s21.q4cdn.com/399680738/files/doc_financials/2026/q2/Meta-06-30-2026-Exhibit-99-1-FINAL.pdf,
+Meta,Q3 2026,operating_cash_flow,32.786,https://www.sec.gov/Archives/edgar/data/0001326801/000162828026066700/meta-09302026xexhibit991.htm,
+Meta,Q3 2026,purchases_of_property_and_equipment,33.942,https://www.sec.gov/Archives/edgar/data/0001326801/000162828026066700/meta-09302026xexhibit991.htm,
+Meta,Q3 2026,principal_payments_on_finance_leases,0.964,https://www.sec.gov/Archives/edgar/data/0001326801/000162828026066700/meta-09302026xexhibit991.htm,
+Meta,Q4 2025,operating_cash_flow,36.21,https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Fourth-Quarter-and-Full-Year-2025-Results/,
+Meta,Q4 2025,capex_incl_finance_lease_principal,22.14,https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Fourth-Quarter-and-Full-Year-2025-Results/,as reported in the release headline
+Meta,Q1 2026,operating_cash_flow,32.23,https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-First-Quarter-2026-Results/,
+Meta,Q1 2026,capex_incl_finance_lease_principal,19.84,https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-First-Quarter-2026-Results/,as reported in the release headline
+Meta,Full year 2025,operating_cash_flow,115.8,https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Fourth-Quarter-and-Full-Year-2025-Results/,
+Meta,Full year 2025,capex_incl_finance_lease_principal,72.22,https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Fourth-Quarter-and-Full-Year-2025-Results/,
+Meta,Q2 2026,proceeds_from_issuance_of_long_term_debt_net,24.91,https://s21.q4cdn.com/399680738/files/doc_financials/2026/q2/Meta-06-30-2026-Exhibit-99-1-FINAL.pdf,nine-month figure in Q3 release is the same: issued in Q2
+Meta,Jan-Sep 2026,repurchases_of_class_a_common_stock,0.0,https://www.sec.gov/Archives/edgar/data/0001326801/000162828026066700/meta-09302026xexhibit991.htm,Jan-Sep 2025: 26.248
+Meta,31 Dec 2025,long_term_debt,58.744,https://www.sec.gov/Archives/edgar/data/0001326801/000162828026066700/meta-09302026xexhibit991.htm,
+Meta,30 Sep 2026,long_term_debt,80.922,https://www.sec.gov/Archives/edgar/data/0001326801/000162828026066700/meta-09302026xexhibit991.htm,
+Meta,31 Dec 2025,cash_and_marketable_securities,81.592,https://www.sec.gov/Archives/edgar/data/0001326801/000162828026066700/meta-09302026xexhibit991.htm,35.873 cash + 45.719 marketable securities
+Meta,30 Sep 2026,cash_and_marketable_securities,82.449,https://www.sec.gov/Archives/edgar/data/0001326801/000162828026066700/meta-09302026xexhibit991.htm,11.222 cash + 71.227 marketable securities
+Microsoft,Q4 fiscal 2026 (Apr-Jun 2026),operating_cash_flow,55.441,https://microsoft.gcs-web.com/static-files/b6406197-54d2-47b7-99ac-cb4f88f1e665,
+Microsoft,Q4 fiscal 2026 (Apr-Jun 2026),additions_to_property_and_equipment,35.802,https://microsoft.gcs-web.com/static-files/b6406197-54d2-47b7-99ac-cb4f88f1e665,excludes finance leases
+Microsoft,Q4 fiscal 2025 (Apr-Jun 2025),operating_cash_flow,42.647,https://microsoft.gcs-web.com/static-files/b6406197-54d2-47b7-99ac-cb4f88f1e665,
+Microsoft,Q4 fiscal 2025 (Apr-Jun 2025),additions_to_property_and_equipment,17.079,https://microsoft.gcs-web.com/static-files/b6406197-54d2-47b7-99ac-cb4f88f1e665,excludes finance leases
+Microsoft,Fiscal 2026 (Jul 2025-Jun 2026),operating_cash_flow,182.935,https://microsoft.gcs-web.com/static-files/b6406197-54d2-47b7-99ac-cb4f88f1e665,
+Microsoft,Fiscal 2026 (Jul 2025-Jun 2026),additions_to_property_and_equipment,115.948,https://microsoft.gcs-web.com/static-files/b6406197-54d2-47b7-99ac-cb4f88f1e665,excludes finance leases
+Microsoft,Fiscal 2025 (Jul 2024-Jun 2025),operating_cash_flow,136.162,https://microsoft.gcs-web.com/static-files/b6406197-54d2-47b7-99ac-cb4f88f1e665,
+Microsoft,Fiscal 2025 (Jul 2024-Jun 2025),additions_to_property_and_equipment,64.551,https://microsoft.gcs-web.com/static-files/b6406197-54d2-47b7-99ac-cb4f88f1e665,excludes finance leases
+Microsoft,Fiscal 2026,repayments_of_debt,3.0,https://microsoft.gcs-web.com/static-files/b6406197-54d2-47b7-99ac-cb4f88f1e665,no debt issuance line in the cash flow statement
+Microsoft,Fiscal 2026,common_stock_repurchased,22.271,https://microsoft.gcs-web.com/static-files/b6406197-54d2-47b7-99ac-cb4f88f1e665,includes shares withheld for employee taxes
+Microsoft,Fiscal 2026,common_stock_cash_dividends_paid,26.445,https://microsoft.gcs-web.com/static-files/b6406197-54d2-47b7-99ac-cb4f88f1e665,
+Microsoft,30 Jun 2025,long_term_debt_non_current,40.152,https://microsoft.gcs-web.com/static-files/b6406197-54d2-47b7-99ac-cb4f88f1e665,
+Microsoft,30 Jun 2026,long_term_debt_non_current,31.067,https://microsoft.gcs-web.com/static-files/b6406197-54d2-47b7-99ac-cb4f88f1e665,
+Microsoft,30 Jun 2025,cash_and_short_term_investments,94.565,https://microsoft.gcs-web.com/static-files/b6406197-54d2-47b7-99ac-cb4f88f1e665,
+Microsoft,30 Jun 2026,cash_and_short_term_investments,76.843,https://microsoft.gcs-web.com/static-files/b6406197-54d2-47b7-99ac-cb4f88f1e665,
+Microsoft,Fiscal 2026,increase_in_cash_used_in_other_investing,22.2,https://www.sec.gov/Archives/edgar/data/0000789019/000119312526427876/d62902dars.pdf,primarily to facilitate the purchase of components
+Microsoft,30 Jun 2026,operating_and_finance_lease_obligations_incl_imputed_interest,443.506,https://www.sec.gov/Archives/edgar/data/0000789019/000119312526427876/d62902dars.pdf,contractual obligations table
+Microsoft,Q4 fiscal 2026,gain_on_investment_in_anthropic,3.2,https://microsoft.gcs-web.com/static-files/b6406197-54d2-47b7-99ac-cb4f88f1e665,

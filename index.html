@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Big Tech’s AI bill has outgrown its cash flow</title>
+<meta name="description" content="Capital expenditure versus operating cash flow at Alphabet, Amazon, Meta and Microsoft, and how each is filling the gap. Built from earnings releases and annual reports. Data as of 25 October 2026.">
+<meta property="og:title" content="Big Tech’s AI bill has outgrown its cash flow">
+<meta property="og:description" content="Alphabet, Amazon and Meta now spend more on capex than their operations generate in cash, and have raised debt or equity in 2026. Microsoft still doesn’t. Every figure links to the original filing.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #F4F6F9;
+    --paper: #FFFFFF;
+    --ink: #101828;
+    --muted: #556070;
+    --rule: #D5DBE4;
+    --alert: #C9381A;
+    --alert-bg: #FCEBE6;
+    --alphabet: #2447C9;
+    --meta: #0A8F7A;
+    --ocf: #B7C1D3;
+    --font: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font); font-size: 17px; line-height: 1.6; font-variant-numeric: tabular-nums; }
+  a { color: var(--alphabet); text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible { outline: 3px solid #0B5FFF; outline-offset: 2px; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+  header.top { padding: 40px 0 8px; }
+  .meta-line { color: var(--muted); font-size: 14px; margin: 0 0 18px; }
+  h1 { font-size: clamp(32px, 6.4vw, 54px); line-height: 1.06; letter-spacing: -0.025em; font-weight: 700; margin: 0 0 18px; max-width: 18ch; }
+  .dek { font-size: clamp(18px, 2.6vw, 21px); color: #2A3447; max-width: 64ch; margin: 0 0 14px; line-height: 1.5; }
+  .asof { display: inline-block; font-size: 14px; color: var(--muted); border-left: 3px solid var(--alert); padding: 2px 0 2px 10px; margin: 8px 0 0; max-width: 70ch; }
+
+  section { padding: 34px 0 6px; }
+  h2 { font-size: clamp(22px, 3.6vw, 28px); line-height: 1.2; letter-spacing: -0.015em; margin: 0 0 10px; font-weight: 650; }
+  h3 { font-size: 18px; margin: 0 0 6px; font-weight: 650; }
+  p { margin: 0 0 14px; max-width: 70ch; }
+  .small { font-size: 14px; color: var(--muted); }
+
+  .panel { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 18px 16px 12px; margin: 18px 0 8px; }
+  .panel .sub { color: var(--muted); font-size: 14px; margin: 0 0 10px; max-width: none; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 14px; margin: 0 0 6px; }
+  .legend span { display: inline-flex; align-items: center; gap: 7px; }
+  .legend i { width: 18px; height: 4px; display: inline-block; border-radius: 2px; }
+  .chart { position: relative; width: 100%; }
+  .chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .chart text { font-family: var(--font); fill: var(--ink); }
+  .tip { position: absolute; pointer-events: none; z-index: 5; min-width: 190px; max-width: 260px; background: var(--ink); color: #fff; font-size: 13px; line-height: 1.45; padding: 9px 11px; border-radius: 5px; opacity: 0; transition: opacity .12s; }
+  .tip b { font-weight: 600; }
+  .tip.on { opacity: 1; }
+  .line { stroke-dasharray: 1; stroke-dashoffset: 0; }
+  .animate .line { animation: draw 1.4s ease-out both; }
+  @keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+  @media (prefers-reduced-motion: reduce) { .animate .line { animation: none; } .tip { transition: none; } }
+
+  .seg { display: inline-flex; border: 1px solid var(--rule); border-radius: 5px; overflow: hidden; margin: 2px 0 8px; }
+  .seg button { font: inherit; font-size: 14px; background: var(--paper); color: var(--ink); border: 0; padding: 7px 16px; cursor: pointer; }
+  .seg button + button { border-left: 1px solid var(--rule); }
+  .seg button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+
+  .findings { margin: 8px 0 0; padding: 0; list-style: none; }
+  .findings li { padding: 14px 0; border-top: 1px solid var(--rule); max-width: 72ch; }
+  .findings li:last-child { border-bottom: 1px solid var(--rule); }
+  .findings strong { font-weight: 650; }
+
+  .tablewrap { overflow-x: auto; margin: 12px 0 6px; }
+  table { border-collapse: collapse; width: 100%; font-size: 15px; background: var(--paper); border: 1px solid var(--rule); }
+  th, td { text-align: right; padding: 10px 9px; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+  th { white-space: normal; line-height: 1.3; vertical-align: bottom; font-weight: 600; font-size: 13px; color: var(--muted); background: #FAFBFC; }
+  th:first-child, td:first-child, th.l, td.l { text-align: left; }
+  .wrapcells td { white-space: normal; }
+  td.over, span.over { color: var(--alert); font-weight: 600; }
+  .bar { position: relative; width: 96px; height: 10px; background: #E9EDF3; border-radius: 2px; display: inline-block; vertical-align: middle; margin-left: 8px; flex: none; }
+  .bar > i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--ink); border-radius: 2px; }
+  .bar > i.over { background: var(--alert); }
+  .bar > b { position: absolute; top: -4px; bottom: -4px; width: 2px; background: var(--alert); }
+  .ratiocell { display: flex; align-items: center; justify-content: flex-end; }
+  .ratiocell span { min-width: 44px; text-align: right; font-weight: 600; }
+  .muted { color: var(--muted); }
+
+  ul.plain { margin: 6px 0 14px; padding-left: 20px; max-width: 72ch; }
+  ul.plain li { margin-bottom: 8px; }
+  .notes { font-size: 14px; color: var(--muted); max-width: 80ch; }
+  .notes p { max-width: none; margin-bottom: 8px; }
+
+  footer { margin-top: 40px; padding: 26px 0 60px; border-top: 1px solid var(--rule); font-size: 14px; color: var(--muted); }
+  footer p { max-width: 76ch; }
+
+  @media (max-width: 560px) {
+    body { font-size: 16px; }
+    .panel { padding: 14px 10px 8px; }
+    .bar { width: 64px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <p class="meta-line">Independent analysis from company filings. Hugo Gutierrez Peralta, 25 October 2026.</p>
+  <h1>Big Tech’s AI bill has outgrown its cash flow</h1>
+  <p class="dek">In their latest quarters, Alphabet, Amazon and Meta each spent more on capital expenditure than their operations generated in cash, and all three raised new debt or equity in 2026. Microsoft’s cash capex is still well inside its operating cash flow, and it kept returning cash to shareholders.</p>
+  <p class="asof">Data as of 25 October 2026. Alphabet, Amazon and Microsoft have not yet reported their third quarter. Amazon has said it reports on 29 October and Alphabet is expected on 28 October; Microsoft’s date was not checked. This page will be updated when they report.</p>
+</header>
+
+<main>
+<section aria-labelledby="h-ratio">
+  <h2 id="h-ratio">The question: who is paying for AI with its own money?</h2>
+  <p>I compared capital expenditure (capex) with operating cash flow at Alphabet, Amazon, Meta and Microsoft, using each company’s own earnings releases and annual report. When capex is above 100% of operating cash flow, a company is investing more than its operations generate in cash. The difference has to come from cash reserves, new debt or new equity.</p>
+
+  <div class="panel">
+    <h3>Capex as a share of operating cash flow, by quarter</h3>
+    <p class="sub">Above the red line, capex exceeds the cash the business generated. Hover or tap a quarter for the dollar figures.</p>
+    <div class="legend" aria-hidden="true">
+      <span><i style="background:var(--alphabet)"></i>Alphabet</span>
+      <span><i style="background:var(--meta)"></i>Meta</span>
+    </div>
+    <div class="chart animate" id="chart-ratio" role="img" aria-label="Line chart of capex as a percentage of operating cash flow. Alphabet rises from 49% in Q3 2025 to 115% in Q2 2026. Meta stays between 61% and 65% until Q1 2026, then reaches 98% in Q2 and 106% in Q3 2026."></div>
+    <p class="small" style="margin:6px 0 4px">Alphabet’s Q3 2026 has not been reported yet. Amazon and Microsoft are not drawn as lines because a quarter-by-quarter series was not collected for them; they are compared in the next two sections.</p>
+  </div>
+
+  <ul class="findings">
+    <li><strong>Alphabet:</strong> capex went from 49% of operating cash flow in Q3 2025 to 115% in Q2 2026, against 81% in Q2 2025. Quarterly capex nearly doubled, from $24.0bn to $44.9bn, while operating cash flow fell from $48.4bn to $39.1bn. Free cash flow was −$5.9bn.</li>
+    <li><strong>Amazon:</strong> in Q2 2026 capex (net of proceeds and incentives) was $53.1bn against operating cash flow of $45.4bn, or 117%, compared with 96% a year earlier. Over twelve months its free cash flow is −$7.6bn, versus +$18.2bn a year before.</li>
+    <li><strong>Meta:</strong> the ratio stayed between 61% and 65% for three quarters, then jumped to 98% in Q2 2026 and 106% in Q3 2026, when free cash flow was −$2.1bn.</li>
+    <li><strong>Microsoft:</strong> capex was 65% of operating cash flow in April to June 2026, up from 40% a year earlier, and 63% over its fiscal year. It paid $26.4bn in dividends and bought back $22.3bn of shares in the year.</li>
+  </ul>
+</section>
+
+<section aria-labelledby="h-q">
+  <h2 id="h-q">The same quarter, four companies</h2>
+  <p>April to June 2026 is the one quarter all four have reported. Microsoft’s fiscal fourth quarter covers the same months. Only Microsoft is clearly below 100%. The red tick marks 100%.</p>
+  <div class="tablewrap">
+    <table id="t-snap">
+      <thead><tr><th>Company</th><th class="l">Quarter</th><th>Operating cash flow, $bn</th><th>Capex, $bn</th><th>Free cash flow, $bn</th><th>Capex as % of operating cash flow</th><th>Same quarter 2025</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <p class="small">Meta has since reported July to September: capex of $34.9bn against operating cash flow of $32.8bn, or 106%.</p>
+</section>
+
+<section aria-labelledby="h-ttm">
+  <h2 id="h-ttm">Over twelve months, Amazon already spends more than it generates</h2>
+  <p>Quarterly figures are noisy, so this table uses the twelve months to June 2026 for all four companies. Amazon’s quarterly ratios swing widely (Q1 2026 alone was 166%; the first half was 112% in 2025 and 135% in 2026), which is why its twelve-month view is the fairer comparison.</p>
+  <div class="tablewrap">
+    <table id="t-ttm">
+      <thead><tr><th>Company</th><th class="l">12 months to</th><th>Operating cash flow, $bn</th><th>Capex, $bn</th><th>Free cash flow, $bn</th><th>Capex as % of operating cash flow</th><th>Year before</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <div class="notes">
+    <p>Capex is defined differently by each company, so compare ratios with care. Alphabet: purchases of property and equipment. Amazon: purchases of property and equipment net of proceeds from sales and incentives, a line Amazon reports directly. Meta: purchases of property and equipment plus principal payments on finance leases. Microsoft: cash additions to property and equipment, which exclude assets acquired under finance leases. The comparison year is the twelve months to June 2025 for Amazon, calendar 2025 for Meta and fiscal 2025 for Microsoft. Alphabet’s year-earlier twelve months were not collected. Including Meta’s Q3 2026, its twelve months to September 2026 stand at 81%.</p>
+  </div>
+</section>
+
+<section aria-labelledby="h-fin">
+  <h2 id="h-fin">How the gap is being filled</h2>
+  <p>Alphabet, Amazon and Meta have all raised new borrowing in 2026, and Alphabet also sold $49.6bn of shares and preferred stock. Alphabet said the proceeds are for general corporate purposes, including capital expenditures to scale AI infrastructure. Meta has stopped buying back its own shares this year, and has approved a new class of non-voting stock that, in its own words, will help it finance growth. Microsoft issued no new debt in fiscal 2026 and repaid $3.0bn.</p>
+  <div class="tablewrap">
+    <table id="t-fin">
+      <thead><tr><th>Company</th><th class="l">Period</th><th>New long-term debt, $bn</th><th>New equity, $bn</th><th>Share buybacks, $bn</th><th>Long-term debt, $bn</th><th>Cash and securities, $bn</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <div class="notes">
+    <p>Debt and equity figures are cash proceeds from each company’s cash flow statement. Buybacks for Alphabet and Meta are shown against the same period of 2025 in brackets. Amazon’s cash flow statement shows no repurchases line. Microsoft’s buybacks include shares withheld for employee taxes. Meta’s Class C stock takes effect in January 2027 and has not been issued.</p>
+  </div>
+</section>
+
+<section aria-labelledby="h-bars">
+  <h2 id="h-bars">The quarter the lines cross</h2>
+  <p>The same data in dollars. Capex is red in any quarter where it was higher than operating cash flow.</p>
+  <div class="panel">
+    <div class="seg" role="group" aria-label="Choose a company">
+      <button type="button" data-co="Alphabet" aria-pressed="true">Alphabet</button>
+      <button type="button" data-co="Meta" aria-pressed="false">Meta</button>
+    </div>
+    <div class="legend" aria-hidden="true">
+      <span><i style="background:var(--ocf)"></i>Operating cash flow</span>
+      <span><i style="background:var(--ink)"></i>Capex</span>
+      <span><i style="background:var(--alert)"></i>Capex above operating cash flow</span>
+    </div>
+    <div class="chart" id="chart-bars" role="img" aria-label="Grouped bar chart of quarterly operating cash flow and capex in billions of dollars for the selected company."></div>
+  </div>
+</section>
+
+<section aria-labelledby="h-profit">
+  <h2 id="h-profit">Why not look at profit?</h2>
+  <p>Net income is a poor guide this year. Alphabet reported a net gain of $98.0bn in other income in the second quarter, mostly unrealised gains on equity securities. Amazon’s second-quarter net income includes $53.4bn of non-operating income, primarily from its investments in Anthropic, the company that develops Claude, the AI assistant used to help prepare this analysis. Microsoft’s fourth quarter includes a $3.2bn gain on its investment in Anthropic. Cash flow is not affected by those revaluations, which is why this study uses it.</p>
+</section>
+
+<section aria-labelledby="h-limits">
+  <h2 id="h-limits">What this does not show</h2>
+  <ul class="plain">
+    <li><strong>Capex is not the same as AI spending.</strong> It is an upper bound: data centres and servers also serve cloud and core products, and the companies do not report an exact split.</li>
+    <li><strong>Cash capex understates what has been committed.</strong> Amazon’s property and equipment acquired but not yet paid rose by $29.3bn over the twelve months. Microsoft’s cash additions exclude finance leases, its other investing outflows rose by $22.2bn, mainly to facilitate the purchase of components, and its lease obligations total $443.5bn including imputed interest. Its ratios are therefore a floor.</li>
+    <li><strong>A ratio above 100% is not a warning on its own.</strong> These companies hold large cash balances (Meta had $82.45bn of cash and marketable securities at 30 September 2026; Alphabet $242.5bn at 30 June) and can borrow. Whether the spending pays off is a question about returns, which this analysis does not assess.</li>
+    <li><strong>It describes what happened, not what comes next.</strong> Capex guidance for 2026 and 2027 changes every quarter, and secondary sources did not always agree on it, so guidance is left out.</li>
+    <li>This is not investment advice.</li>
+  </ul>
+</section>
+
+<section aria-labelledby="h-src">
+  <h2 id="h-src">Sources</h2>
+  <p>Every figure comes from the company documents below, which were re-checked on 25 October 2026. Ratios, sums and differences are my own calculations. The full list of figures is in <code>figures_and_sources.csv</code> in the repository.</p>
+  <div class="tablewrap">
+    <table class="wrapcells">
+      <thead><tr><th>Company</th><th class="l">Figures used</th><th class="l">Document</th></tr></thead>
+      <tbody>
+        <tr><td>Alphabet</td><td class="l">Cash flow statement, free cash flow reconciliation (Q3 2025 to Q2 2026), financing flows, balance sheet, other income</td><td class="l"><a href="https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm" target="_blank" rel="noopener noreferrer">Q2 2026 earnings release (SEC exhibit 99.1)</a></td></tr>
+        <tr><td>Amazon</td><td class="l">Cash flow statement for three, six and twelve months, balance sheet, trailing twelve-month table</td><td class="l"><a href="https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q2/earnings-result/AMZN-Q2-2026-Earnings-Release.pdf" target="_blank" rel="noopener noreferrer">Q2 2026 earnings release</a></td></tr>
+        <tr><td>Meta</td><td class="l">Q3 2026 and Q3 2025 cash flow, nine-month financing, balance sheet</td><td class="l"><a href="https://www.sec.gov/Archives/edgar/data/0001326801/000162828026066700/meta-09302026xexhibit991.htm" target="_blank" rel="noopener noreferrer">Q3 2026 earnings release (SEC exhibit 99.1)</a></td></tr>
+        <tr><td>Meta</td><td class="l">Q2 2026 and Q2 2025 cash flow, balance sheet</td><td class="l"><a href="https://s21.q4cdn.com/399680738/files/doc_financials/2026/q2/Meta-06-30-2026-Exhibit-99-1-FINAL.pdf" target="_blank" rel="noopener noreferrer">Q2 2026 earnings release</a></td></tr>
+        <tr><td>Meta</td><td class="l">Q1 2026 figures</td><td class="l"><a href="https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-First-Quarter-2026-Results/" target="_blank" rel="noopener noreferrer">Q1 2026 results</a></td></tr>
+        <tr><td>Meta</td><td class="l">Q4 2025 and full-year 2025 figures</td><td class="l"><a href="https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Fourth-Quarter-and-Full-Year-2025-Results/" target="_blank" rel="noopener noreferrer">Q4 and full-year 2025 results</a></td></tr>
+        <tr><td>Microsoft</td><td class="l">Cash flow statements for the June 2026 quarter and fiscal year, balance sheet</td><td class="l"><a href="https://microsoft.gcs-web.com/static-files/b6406197-54d2-47b7-99ac-cb4f88f1e665" target="_blank" rel="noopener noreferrer">Q4 fiscal 2026 earnings release (Form 8-K, exhibit 99.1)</a></td></tr>
+        <tr><td>Microsoft</td><td class="l">Cash flow discussion, share repurchases, contractual obligations</td><td class="l"><a href="https://www.sec.gov/Archives/edgar/data/0000789019/000119312526427876/d62902dars.pdf" target="_blank" rel="noopener noreferrer">Fiscal 2026 annual report to shareholders</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p>Prepared by <a href="https://github.com/hugurry" target="_blank" rel="noopener noreferrer">Hugo Gutierrez Peralta</a>. The data were compiled and the page was built with the assistance of Claude, an AI assistant made by Anthropic. All figures should be checked against the linked documents before they are relied on.</p>
+  <p>Independent analysis based only on public documents. It is not investment advice. Update log: 25 October 2026, first version, figures re-checked against the original documents. Next update: third-quarter results for Alphabet, Amazon and Microsoft.</p>
+</footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ------------------------------------------------------------------
+     DATA. All values in billions of US dollars, taken from the company
+     documents listed in the Sources section. To update the study, edit
+     only this block.
+     ------------------------------------------------------------------ */
+  var QUARTERS = ["Q3 2025", "Q4 2025", "Q1 2026", "Q2 2026", "Q3 2026"];
+  var QUARTERLY = {
+    Alphabet: [
+      { ocf: 48.414, capex: 23.953, fcf: 24.461 },
+      { ocf: 52.402, capex: 27.851, fcf: 24.551 },
+      { ocf: 45.790, capex: 35.674, fcf: 10.116 },
+      { ocf: 39.069, capex: 44.924, fcf: -5.855 },
+      null
+    ],
+    Meta: [
+      { ocf: 29.999, capex: 18.829 + 0.545, fcf: 10.625 },
+      { ocf: 36.21, capex: 22.14, fcf: 14.08 },
+      { ocf: 32.23, capex: 19.84, fcf: 12.39 },
+      { ocf: 31.862, capex: 30.116 + 0.962, fcf: 0.784 },
+      { ocf: 32.786, capex: 33.942 + 0.964, fcf: -2.120 }
+    ]
+  };
+  var COLORS = { Alphabet: "#2447C9", Meta: "#0A8F7A" };
+
+  /* April to June 2026 against April to June 2025 (Microsoft: fiscal Q4). */
+  var SNAP = [
+    { name: "Alphabet", label: "Q2 2026", ocf: 39.069, capex: 44.924, prior: { ocf: 27.747, capex: 22.446 } },
+    { name: "Amazon", label: "Q2 2026", ocf: 45.387, capex: 54.208 - 1.132, prior: { ocf: 32.515, capex: 32.183 - 0.815 } },
+    { name: "Meta", label: "Q2 2026", ocf: 31.862, capex: 30.116 + 0.962, prior: { ocf: 25.561, capex: 16.538 + 0.474 } },
+    { name: "Microsoft", label: "Q4 fiscal 2026", ocf: 55.441, capex: 35.802, prior: { ocf: 42.647, capex: 17.079 } }
+  ];
+
+  /* Twelve months to June 2026. Meta is the sum of Q3 2025 to Q2 2026. */
+  var M = QUARTERLY.Meta;
+  var TTM = [
+    { name: "Alphabet", window: "Jun 2026", ocf: 185.675, capex: 132.402, prior: null },
+    { name: "Amazon", window: "Jun 2026", ocf: 161.403, capex: 169.007, prior: { ocf: 121.137, capex: 102.953 } },
+    { name: "Meta", window: "Jun 2026", ocf: M[0].ocf + M[1].ocf + M[2].ocf + M[3].ocf, capex: M[0].capex + M[1].capex + M[2].capex + M[3].capex, prior: { ocf: 115.80, capex: 72.22 } },
+    { name: "Microsoft", window: "Jun 2026", ocf: 182.935, capex: 115.948, prior: { ocf: 136.162, capex: 64.551 } }
+  ];
+
+  /* Financing flows from each cash flow statement and balance sheet. */
+  var FIN = [
+    { name: "Alphabet", period: "Jan to Jun 2026", debt: 56.226, equity: 49.562, buyback: "0 (2025: 28.3)", ltd: [46.547, 98.165, "Dec 2025", "Jun 2026"], cash: [126.843, 242.474] },
+    { name: "Amazon", period: "Jan to Jun 2026", debt: 66.998, equity: null, buyback: "none shown", ltd: [65.648, 128.894, "Dec 2025", "Jun 2026"], cash: [86.810 + 36.219, 78.213 + 44.775] },
+    { name: "Meta", period: "Jan to Sep 2026", debt: 24.910, equity: null, buyback: "0 (2025: 26.2)", ltd: [58.744, 80.922, "Dec 2025", "Sep 2026"], cash: [35.873 + 45.719, 11.222 + 71.227] },
+    { name: "Microsoft", period: "Jul 2025 to Jun 2026", debt: null, equity: null, buyback: "22.3", ltd: [40.152, 31.067, "Jun 2025", "Jun 2026"], cash: [94.565, 76.843] }
+  ];
+
+  /* ------------------------------------------------------------------ */
+  var MINUS = "\u2212";
+  function ratio(d) { return d ? 100 * d.capex / d.ocf : null; }
+  function usd(n) { return (n < 0 ? MINUS : "") + "$" + Math.abs(n).toFixed(1) + "bn"; }
+  function num(n) { return (n < 0 ? MINUS : "") + Math.abs(n).toFixed(1); }
+  function el(tag, attrs) {
+    var e = document.createElementNS("http://www.w3.org/2000/svg", tag);
+    for (var k in attrs) { if (Object.prototype.hasOwnProperty.call(attrs, k)) e.setAttribute(k, attrs[k]); }
+    return e;
+  }
+  function txt(parent, content, attrs) { var t = el("text", attrs); t.textContent = content; parent.appendChild(t); return t; }
+  function noMotion() { return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches; }
+
+  function ratioCell(rt) {
+    var over = rt > 100;
+    var barW = Math.min(100, rt / 130 * 100);
+    return "<td><div class=\"ratiocell\"><span class=\"" + (over ? "over" : "") + "\">" + rt.toFixed(0) + "%</span>" +
+      "<div class=\"bar\" aria-hidden=\"true\"><i class=\"" + (over ? "over" : "") + "\" style=\"width:" + barW.toFixed(1) + "%\"></i>" +
+      "<b style=\"left:" + (100 / 130 * 100).toFixed(1) + "%\"></b></div></div></td>";
+  }
+
+  function renderRatioTable(sel, rows, labelKey) {
+    var tbody = document.querySelector(sel + " tbody");
+    tbody.innerHTML = "";
+    rows.forEach(function (r) {
+      var fcf = r.ocf - r.capex;
+      var rt = 100 * r.capex / r.ocf;
+      var prior = r.prior ? (100 * r.prior.capex / r.prior.ocf).toFixed(0) + "%" : "n/a";
+      var tr = document.createElement("tr");
+      tr.innerHTML = "<td>" + r.name + "</td><td class=\"l\">" + (r[labelKey]) + "</td>" +
+        "<td>" + num(r.ocf) + "</td><td>" + num(r.capex) + "</td>" +
+        "<td class=\"" + (fcf < 0 ? "over" : "") + "\">" + num(fcf) + "</td>" +
+        ratioCell(rt) + "<td>" + prior + "</td>";
+      tbody.appendChild(tr);
+    });
+  }
+
+  function renderFinance() {
+    var tbody = document.querySelector("#t-fin tbody");
+    tbody.innerHTML = "";
+    FIN.forEach(function (r) {
+      var tr = document.createElement("tr");
+      tr.innerHTML = "<td>" + r.name + "</td><td class=\"l\">" + r.period + "</td>" +
+        "<td>" + (r.debt === null ? "none" : num(r.debt)) + "</td>" +
+        "<td>" + (r.equity === null ? "none" : num(r.equity)) + "</td>" +
+        "<td>" + r.buyback + "</td>" +
+        "<td>" + num(r.ltd[0]) + " " + "\u2192" + " " + num(r.ltd[1]) + "<br><span class=\"small\">" + r.ltd[2] + " to " + r.ltd[3] + "</span></td>" +
+        "<td>" + num(r.cash[0]) + " " + "\u2192" + " " + num(r.cash[1]) + "</td>";
+      tbody.appendChild(tr);
+    });
+  }
+
+  /* ---------- Chart 1: ratio lines ---------- */
+  function renderRatio() {
+    var wrap = document.getElementById("chart-ratio");
+    var keepTip = wrap.querySelector(".tip");
+    wrap.innerHTML = "";
+    var W = Math.max(280, wrap.clientWidth);
+    var H = Math.round(Math.max(300, Math.min(420, W * 0.56)));
+    var small = W < 520;
+    var m = { t: 16, r: small ? 14 : 26, b: 30, l: small ? 38 : 46 };
+    var iw = W - m.l - m.r, ih = H - m.t - m.b;
+    var YMAX = 130;
+    var n = QUARTERS.length;
+    function x(i) { return m.l + iw * (i + 0.5) / n; }
+    function y(v) { return m.t + ih * (1 - v / YMAX); }
+
+    var svg = el("svg", { viewBox: "0 0 " + W + " " + H, width: W, height: H, "aria-hidden": "true" });
+    svg.appendChild(el("rect", { x: m.l, y: y(YMAX), width: iw, height: y(100) - y(YMAX), fill: "#FCEBE6" }));
+    [0, 25, 50, 75, 100, 125].forEach(function (g) {
+      svg.appendChild(el("line", { x1: m.l, x2: m.l + iw, y1: y(g), y2: y(g), stroke: g === 100 ? "#C9381A" : "#E3E8EF", "stroke-width": g === 100 ? 2 : 1 }));
+      txt(svg, g + "%", { x: m.l - 8, y: y(g) + 4, "text-anchor": "end", "font-size": 12, style: "fill:" + (g === 100 ? "#C9381A" : "#556070") });
+    });
+    txt(svg, "Capex above operating cash flow", { x: m.l + 8, y: y(100) - 8, "font-size": 12, style: "fill:#C9381A;font-weight:600" });
+    QUARTERS.forEach(function (q, i) { txt(svg, q, { x: x(i), y: H - 8, "text-anchor": "middle", "font-size": 12, style: "fill:#556070" }); });
+
+    var names = ["Alphabet", "Meta"];
+    names.forEach(function (nm) {
+      var pts = [];
+      QUARTERLY[nm].forEach(function (d, i) { if (d) pts.push([i, ratio(d)]); });
+      var dpath = pts.map(function (p, k) { return (k ? "L" : "M") + x(p[0]).toFixed(1) + " " + y(p[1]).toFixed(1); }).join(" ");
+      svg.appendChild(el("path", { d: dpath, fill: "none", stroke: COLORS[nm], "stroke-width": 3, "stroke-linejoin": "round", "stroke-linecap": "round", class: "line", pathLength: 1 }));
+    });
+    names.forEach(function (nm) {
+      QUARTERLY[nm].forEach(function (d, i) {
+        if (!d) return;
+        var v = ratio(d);
+        var other = QUARTERLY[nm === "Alphabet" ? "Meta" : "Alphabet"][i];
+        var above = true;
+        if (other) { above = v >= ratio(other); }
+        svg.appendChild(el("circle", { cx: x(i), cy: y(v), r: 5, fill: "#fff", stroke: COLORS[nm], "stroke-width": 3 }));
+        txt(svg, v.toFixed(0) + "%", { x: x(i), y: y(v) + (above ? -12 : 20), "text-anchor": "middle", "font-size": 13, style: "fill:" + COLORS[nm] + ";font-weight:700" });
+      });
+    });
+
+    var tip = keepTip || document.createElement("div");
+    tip.className = "tip"; tip.setAttribute("role", "status");
+    QUARTERS.forEach(function (q, i) {
+      var col = el("rect", { x: x(i) - iw / n / 2, y: m.t, width: iw / n, height: ih, fill: "transparent", style: "cursor:crosshair" });
+      function show() {
+        var html = "<b>" + q + "</b>";
+        ["Alphabet", "Meta"].forEach(function (nm) {
+          var d = QUARTERLY[nm][i];
+          html += "<br>" + nm + ": " + (d ? "capex " + usd(d.capex) + " vs operating cash flow " + usd(d.ocf) + " (" + ratio(d).toFixed(0) + "%)" : "not reported yet");
+        });
+        tip.innerHTML = html;
+        var left = x(i) + 12; if (left > W - 230) left = x(i) - 232; if (left < 0) left = 4;
+        tip.style.left = left + "px"; tip.style.top = (m.t + 6) + "px";
+        tip.classList.add("on");
+      }
+      col.addEventListener("mouseenter", show);
+      col.addEventListener("touchstart", show, { passive: true });
+      col.addEventListener("mouseleave", function () { tip.classList.remove("on"); });
+      svg.appendChild(col);
+    });
+    wrap.appendChild(svg);
+    wrap.appendChild(tip);
+    if (noMotion()) wrap.classList.remove("animate");
+  }
+
+  /* ---------- Chart 2: grouped bars ---------- */
+  var currentCo = "Alphabet";
+  function renderBars() {
+    var wrap = document.getElementById("chart-bars");
+    wrap.innerHTML = "";
+    var items = [];
+    QUARTERLY[currentCo].forEach(function (d, i) { if (d) items.push({ q: QUARTERS[i], d: d }); });
+    var W = Math.max(280, wrap.clientWidth);
+    var H = Math.round(Math.max(280, Math.min(380, W * 0.5)));
+    var small = W < 520;
+    var m = { t: 30, r: 10, b: 30, l: small ? 34 : 42 };
+    var iw = W - m.l - m.r, ih = H - m.t - m.b;
+    var maxV = 0; items.forEach(function (it) { maxV = Math.max(maxV, it.d.ocf, it.d.capex); });
+    var YMAX = Math.ceil(maxV * 1.12 / 10) * 10;
+    function y(v) { return m.t + ih * (1 - v / YMAX); }
+    var svg = el("svg", { viewBox: "0 0 " + W + " " + H, width: W, height: H, "aria-hidden": "true" });
+    for (var g = 0; g <= YMAX; g += 10) {
+      svg.appendChild(el("line", { x1: m.l, x2: m.l + iw, y1: y(g), y2: y(g), stroke: "#E3E8EF", "stroke-width": 1 }));
+      txt(svg, "$" + g, { x: m.l - 6, y: y(g) + 4, "text-anchor": "end", "font-size": 12, style: "fill:#556070" });
+    }
+    var band = iw / items.length;
+    var bw = Math.min(54, band * 0.32);
+    items.forEach(function (it, i) {
+      var cx = m.l + band * (i + 0.5);
+      var over = it.d.capex > it.d.ocf;
+      svg.appendChild(el("rect", { x: cx - bw - 2, y: y(it.d.ocf), width: bw, height: y(0) - y(it.d.ocf), fill: "#B7C1D3" }));
+      svg.appendChild(el("rect", { x: cx + 2, y: y(it.d.capex), width: bw, height: y(0) - y(it.d.capex), fill: over ? "#C9381A" : "#101828" }));
+      txt(svg, it.d.ocf.toFixed(1), { x: cx - bw / 2 - 2, y: y(it.d.ocf) - 5, "text-anchor": "middle", "font-size": 12, style: "fill:#556070" });
+      txt(svg, it.d.capex.toFixed(1), { x: cx + bw / 2 + 2, y: y(it.d.capex) - 5, "text-anchor": "middle", "font-size": 12, style: "font-weight:600;fill:" + (over ? "#C9381A" : "#101828") });
+      txt(svg, it.q, { x: cx, y: H - 10, "text-anchor": "middle", "font-size": 12, style: "fill:#556070" });
+      var f = it.d.ocf - it.d.capex;
+      txt(svg, "FCF " + (f < 0 ? MINUS : "+") + Math.abs(f).toFixed(1), { x: cx, y: 16, "text-anchor": "middle", "font-size": 12, style: "font-weight:600;fill:" + (f < 0 ? "#C9381A" : "#0A8F7A") });
+    });
+    wrap.appendChild(svg);
+  }
+
+  function setupToggle() {
+    var btns = document.querySelectorAll(".seg button");
+    Array.prototype.forEach.call(btns, function (b) {
+      b.addEventListener("click", function () {
+        currentCo = b.getAttribute("data-co");
+        Array.prototype.forEach.call(btns, function (o) { o.setAttribute("aria-pressed", o === b ? "true" : "false"); });
+        renderBars();
+      });
+    });
+  }
+
+  function renderAll() {
+    renderRatioTable("#t-snap", SNAP, "label");
+    renderRatioTable("#t-ttm", TTM, "window");
+    renderFinance();
+    renderRatio();
+    renderBars();
+  }
+  var resizeTimer;
+  window.addEventListener("resize", function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      var w = document.getElementById("chart-ratio"); if (w) w.classList.remove("animate");
+      renderRatio(); renderBars();
+    }, 120);
+  });
+  setupToggle();
+  renderAll();
+})();
+</script>
+<noscript><div class="wrap"><p class="small">Charts and tables need JavaScript. The sources are listed above.</p></div></noscript>
+</body>
+</html>
